@@ -1,0 +1,21 @@
+user1 said:xxx
+
+2016-06-04 17:38:41.444 [myplugin Queue Worker 3]  MyPlugin.process()         INFO:     session.getjid(): user1@192.168.43.146/tch-pc
+2016-06-04 17:38:41.444 [myplugin Queue Worker 3]  MyPlugin.process()         INFO:     packet.getStanzaTo().getBareJID(): admin@192.168.43.146
+2016-06-04 17:38:41.444 [myplugin Queue Worker 3]  MyPlugin.process()         INFO:     session.isUserId(packet.getStanzaTo().getBareJID()): false
+2016-06-04 17:38:41.444 [myplugin Queue Worker 3]  MyPlugin.process()         INFO:     packet.getStanzaFrom().getBareJID(): user1@192.168.43.146
+2016-06-04 17:38:41.444 [myplugin Queue Worker 3]  MyPlugin.process()         INFO:     session.isUserId(packet.getStanzaFrom().getBareJID()): true
+2016-06-04 17:38:41.445 [myplugin Queue Worker 3]  MyPlugin.process()         INFO:     packet.getFrom(): c2s@tch-pc/192.168.43.146_5222_192.168.43.146_48284
+2016-06-04 17:38:41.446 [myplugin Queue Worker 3]  MyPlugin.process()         INFO:     session.getConnectionId().equals(jid): true
+2016-06-04 17:38:41.446 [myplugin Queue Worker 3]  MyPlugin.process()         INFO:     packet.getTo(): sess-man@tch-pc
+2016-06-04 17:38:41.446 [myplugin Queue Worker 3]  MyPlugin.process()         INFO:     session.getConnectionId().equals(jid): false
+
+2016-06-04 17:38:41.446 [myplugin Queue Worker 0]  MyPlugin.process()         INFO:     session.getjid(): admin@192.168.43.146/tch-pc
+2016-06-04 17:38:41.446 [myplugin Queue Worker 0]  MyPlugin.process()         INFO:     packet.getStanzaTo().getBareJID(): admin@192.168.43.146
+2016-06-04 17:38:41.446 [myplugin Queue Worker 0]  MyPlugin.process()         INFO:     session.isUserId(packet.getStanzaTo().getBareJID()): true
+2016-06-04 17:38:41.447 [myplugin Queue Worker 0]  MyPlugin.process()         INFO:     packet.getStanzaFrom().getBareJID(): user1@192.168.43.146
+2016-06-04 17:38:41.447 [myplugin Queue Worker 0]  MyPlugin.process()         INFO:     session.isUserId(packet.getStanzaFrom().getBareJID()): false
+2016-06-04 17:38:41.447 [myplugin Queue Worker 0]  MyPlugin.process()         INFO:     packet.getFrom(): sess-man@tch-pc
+2016-06-04 17:38:41.447 [myplugin Queue Worker 0]  MyPlugin.process()         INFO:     session.getConnectionId().equals(jid): false
+2016-06-04 17:38:41.447 [myplugin Queue Worker 0]  MyPlugin.process()         INFO:     packet.getTo(): sess-man@tch-pc
+2016-06-04 17:38:41.447 [myplugin Queue Worker 0]  MyPlugin.process()         INFO:     session.getConnectionId().equals(jid): false

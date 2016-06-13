@@ -1,0 +1,93 @@
+a 添加 b:
+
+2016-06-12 11:48:33.678 [jabber:iq:roster Queue Worker 4]  RosterFlat.addBuddy()  FINEST: 1. Added buddy to roster: user2@192.168.43.146, name: user2, item: <item subscription="none" name="user2" jid="user2@192.168.43.146"/>
+2016-06-12 11:48:33.679 [jabber:iq:roster Queue Worker 4]  RosterFlat.saveUserRoster()  FINEST: admin@192.168.43.146 | Saving user roster: <contact last-seen="1000" weight="1.0" name="user2" preped="simple" jid="user2@192.168.43.146" activity="1.0" subs="none"/><contact last-seen="1465703265002" weight="1.0" name="richmj" preped="simple" jid="richmj@192.168.43.146" activity="1.0" subs="both"/><contact last-seen="1465703265003" weight="1.0" name="user1" preped="simple" jid="user1@192.168.43.146" activity="1.0" subs="both"/>
+2016-06-12 11:48:33.685 [jabber:iq:roster Queue Worker 4]  RosterFlat.addBuddy()  FINEST: 2. Added buddy to roster: user2@192.168.43.146, name: user2, item: <item subscription="none" name="user2" jid="user2@192.168.43.146"/>
+2016-06-12 11:48:33.694 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: current_subscription=none for jid=user2@192.168.43.146
+2016-06-12 11:48:33.694 [presence Queue Worker 4]  RosterAbstract$StateTransition.getStateTransition()  FINEST: this=none, pres_type=out_subscribe, res=none_pending_out
+2016-06-12 11:48:33.694 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: new_subscription=none_pending_out for presence=out_subscribe
+2016-06-12 11:48:33.694 [presence Queue Worker 4]  RosterFlat.saveUserRoster()  FINEST: admin@192.168.43.146 | Saving user roster: <contact last-seen="1000" weight="1.0" name="user2" preped="simple" jid="user2@192.168.43.146" activity="1.0" subs="none_pending_out"/><contact last-seen="1465703265002" weight="1.0" name="richmj" preped="simple" jid="richmj@192.168.43.146" activity="1.0" subs="both"/><contact last-seen="1465703265003" weight="1.0" name="user1" preped="simple" jid="user1@192.168.43.146" activity="1.0" subs="both"/>
+2016-06-12 11:48:33.705 [presence Queue Worker 4]  RosterFlat.addBuddy()      FINEST:   1. Added buddy to roster: admin@192.168.43.146, name: admin, item: <item subscription="none" name="admin" jid="admin@192.168.43.146"/>
+2016-06-12 11:48:33.705 [presence Queue Worker 4]  RosterFlat.saveUserRoster()  FINEST: user2@192.168.43.146 | Saving user roster: <contact last-seen="1000" weight="1.0" name="admin" preped="simple" jid="admin@192.168.43.146" activity="1.0" subs="none"/>
+2016-06-12 11:48:33.710 [presence Queue Worker 4]  RosterFlat.addBuddy()      FINEST:   2. Added buddy to roster: admin@192.168.43.146, name: admin, item: <item subscription="none" name="admin" jid="admin@192.168.43.146"/>
+2016-06-12 11:48:33.710 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: current_subscription=none for jid=admin@192.168.43.146
+2016-06-12 11:48:33.710 [presence Queue Worker 4]  RosterAbstract$StateTransition.getStateTransition()  FINEST: this=none, pres_type=in_subscribe, res=none_pending_in
+2016-06-12 11:48:33.710 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: new_subscription=none_pending_in for presence=in_subscribe
+2016-06-12 11:48:33.710 [presence Queue Worker 4]  RosterFlat.saveUserRoster()  FINEST: user2@192.168.43.146 | Saving user roster: <contact last-seen="1000" weight="1.0" name="admin" preped="simple" jid="admin@192.168.43.146" activity="1.0" subs="none_pending_in"/>
+
+
+b同意：
+
+2016-06-12 11:49:43.928 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: current_subscription=none_pending_in for jid=admin@192.168.43.146
+2016-06-12 11:49:43.928 [presence Queue Worker 4]  RosterAbstract$StateTransition.getStateTransition()  FINEST: this=none_pending_in, pres_type=out_subscribe, res=none_pending_out_in
+2016-06-12 11:49:43.928 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: new_subscription=none_pending_out_in for presence=out_subscribe
+2016-06-12 11:49:43.929 [presence Queue Worker 4]  RosterFlat.saveUserRoster()  FINEST: user2@192.168.43.146 | Saving user roster: <contact last-seen="1000" weight="1.0" name="admin" preped="simple" jid="admin@192.168.43.146" activity="1.0" subs="none_pending_out_in"/>
+2016-06-12 11:49:43.935 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: current_subscription=none_pending_out_in for jid=admin@192.168.43.146
+2016-06-12 11:49:43.935 [presence Queue Worker 4]  RosterAbstract$StateTransition.getStateTransition()  FINEST: this=none_pending_out_in, pres_type=out_subscribed, res=from_pending_out
+2016-06-12 11:49:43.935 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: new_subscription=from_pending_out for presence=out_subscribed
+2016-06-12 11:49:43.935 [presence Queue Worker 4]  RosterFlat.saveUserRoster()  FINEST: user2@192.168.43.146 | Saving user roster: <contact last-seen="1000" weight="1.0" name="admin" preped="simple" jid="admin@192.168.43.146" activity="1.0" subs="from_pending_out"/>
+2016-06-12 11:49:43.939 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: current_subscription=none_pending_out for jid=user2@192.168.43.146
+2016-06-12 11:49:43.940 [jabber:iq:roster Queue Worker 4]  RosterFlat.saveUserRoster()  FINEST: user2@192.168.43.146 | Saving user roster: <contact last-seen="1000" weight="1.0" name="admin" preped="simple" jid="admin@192.168.43.146" activity="1.0" subs="from_pending_out"/>
+2016-06-12 11:49:43.940 [presence Queue Worker 4]  RosterAbstract$StateTransition.getStateTransition()  FINEST: this=none_pending_out, pres_type=in_subscribe, res=none_pending_out_in
+2016-06-12 11:49:43.940 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: new_subscription=none_pending_out_in for presence=in_subscribe
+2016-06-12 11:49:43.941 [presence Queue Worker 4]  RosterFlat.saveUserRoster()  FINEST: admin@192.168.43.146 | Saving user roster: <contact last-seen="1000" weight="1.0" name="user2" preped="simple" jid="user2@192.168.43.146" activity="1.0" subs="none_pending_out_in"/><contact last-seen="1465703265002" weight="1.0" name="richmj" preped="simple" jid="richmj@192.168.43.146" activity="1.0" subs="both"/><contact last-seen="1465703265003" weight="1.0" name="user1" preped="simple" jid="user1@192.168.43.146" activity="1.0" subs="both"/>
+2016-06-12 11:49:43.943 [jabber:iq:roster Queue Worker 4]  RosterFlat.addBuddy()  FINEST: Updated buddy in roster: admin@192.168.43.146
+2016-06-12 11:49:43.947 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: current_subscription=none_pending_out_in for jid=user2@192.168.43.146
+2016-06-12 11:49:43.947 [presence Queue Worker 4]  RosterAbstract$StateTransition.getStateTransition()  FINEST: this=none_pending_out_in, pres_type=in_subscribed, res=to_pending_in
+2016-06-12 11:49:43.947 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: new_subscription=to_pending_in for presence=in_subscribed
+2016-06-12 11:49:43.947 [presence Queue Worker 4]  RosterFlat.saveUserRoster()  FINEST: admin@192.168.43.146 | Saving user roster: <contact last-seen="1000" weight="1.0" name="user2" preped="simple" jid="user2@192.168.43.146" activity="1.0" subs="to_pending_in"/><contact last-seen="1465703265002" weight="1.0" name="richmj" preped="simple" jid="richmj@192.168.43.146" activity="1.0" subs="both"/><contact last-seen="1465703265003" weight="1.0" name="user1" preped="simple" jid="user1@192.168.43.146" activity="1.0" subs="both"/>
+
+
+
+a同意：
+
+2016-06-12 11:50:18.195 [jabber:iq:roster Queue Worker 4]  RosterFlat.saveUserRoster()  FINEST: admin@192.168.43.146 | Saving user roster: <contact last-seen="1465703383952" weight="1.0" name="user2" preped="simple" jid="user2@192.168.43.146" activity="1.0" subs="to_pending_in"/><contact last-seen="1465703265002" weight="1.0" name="richmj" preped="simple" jid="richmj@192.168.43.146" activity="1.0" subs="both"/><contact last-seen="1465703265003" weight="1.0" name="user1" preped="simple" jid="user1@192.168.43.146" activity="1.0" subs="both"/>
+2016-06-12 11:50:18.198 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: current_subscription=to_pending_in for jid=user2@192.168.43.146
+2016-06-12 11:50:18.199 [presence Queue Worker 4]  RosterAbstract$StateTransition.getStateTransition()  FINEST: this=to_pending_in, pres_type=out_subscribe, res=to_pending_in
+2016-06-12 11:50:18.199 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: new_subscription=to_pending_in for presence=out_subscribe
+2016-06-12 11:50:18.199 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: current_subscription=to_pending_in for jid=user2@192.168.43.146
+2016-06-12 11:50:18.199 [presence Queue Worker 4]  RosterAbstract$StateTransition.getStateTransition()  FINEST: this=to_pending_in, pres_type=out_subscribed, res=both
+2016-06-12 11:50:18.199 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: new_subscription=both for presence=out_subscribed
+2016-06-12 11:50:18.199 [presence Queue Worker 4]  RosterFlat.saveUserRoster()  FINEST: admin@192.168.43.146 | Saving user roster: <contact last-seen="1465703383952" weight="1.0" name="user2" preped="simple" jid="user2@192.168.43.146" activity="1.0" subs="both"/><contact last-seen="1465703265002" weight="1.0" name="richmj" preped="simple" jid="richmj@192.168.43.146" activity="1.0" subs="both"/><contact last-seen="1465703265003" weight="1.0" name="user1" preped="simple" jid="user1@192.168.43.146" activity="1.0" subs="both"/>
+2016-06-12 11:50:18.202 [jabber:iq:roster Queue Worker 4]  RosterFlat.addBuddy()  FINEST: Updated buddy in roster: user2@192.168.43.146
+2016-06-12 11:50:18.208 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: current_subscription=from_pending_out for jid=admin@192.168.43.146
+2016-06-12 11:50:18.208 [presence Queue Worker 4]  RosterAbstract$StateTransition.getStateTransition()  FINEST: this=from_pending_out, pres_type=in_subscribed, res=both
+2016-06-12 11:50:18.208 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: new_subscription=both for presence=in_subscribed
+2016-06-12 11:50:18.208 [presence Queue Worker 4]  RosterFlat.saveUserRoster()  FINEST: user2@192.168.43.146 | Saving user roster: <contact last-seen="1000" weight="1.0" name="admin" preped="simple" jid="admin@192.168.43.146" activity="1.0" subs="both"/>
+2016-06-12 11:50:18.214 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: current_subscription=both for jid=user2@192.168.43.146
+2016-06-12 11:50:18.214 [presence Queue Worker 4]  RosterAbstract$StateTransition.getStateTransition()  FINEST: this=both, pres_type=in_subscribed, res=both
+2016-06-12 11:50:18.214 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: new_subscription=both for presence=in_subscribed
+
+
+
+通过tigase.server.AbstractMessageReceiver类的 boolean addOutPacket(Packet packet)方法即可
+
+如果在 init.properties 配置了 sess-man/plugins-conf/auto-authorize=true 之后
+a添加b：
+
+2016-06-12 14:05:51.237 [jabber:iq:roster Queue Worker 4]  RosterFlat.addBuddy()  FINEST: 1. Added buddy to roster: richmj@192.168.43.146, name: richmj, item: <item name="richmj" subscription="none" jid="richmj@192.168.43.146"/>
+2016-06-12 14:05:51.238 [jabber:iq:roster Queue Worker 4]  RosterFlat.saveUserRoster()  FINEST: admin@192.168.43.146 | Saving user roster: <contact weight="1.0" last-seen="1000" preped="simple" name="richmj" activity="1.0" jid="richmj@192.168.43.146" subs="none"/>
+2016-06-12 14:05:51.239 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: current_subscription=none for jid=richmj@192.168.43.146
+2016-06-12 14:05:51.239 [presence Queue Worker 4]  RosterAbstract$StateTransition.getStateTransition()  FINEST: this=none, pres_type=out_subscribe, res=none_pending_out
+2016-06-12 14:05:51.239 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: new_subscription=none_pending_out for presence=out_subscribe
+2016-06-12 14:05:51.239 [presence Queue Worker 4]  RosterFlat.saveUserRoster()  FINEST: admin@192.168.43.146 | Saving user roster: <contact weight="1.0" last-seen="1000" preped="simple" name="richmj" activity="1.0" jid="richmj@192.168.43.146" subs="none_pending_out"/>
+2016-06-12 14:05:51.246 [jabber:iq:roster Queue Worker 4]  RosterFlat.addBuddy()  FINEST: 2. Added buddy to roster: richmj@192.168.43.146, name: richmj, item: <item name="richmj" ask="subscribe" subscription="none" jid="richmj@192.168.43.146"/>
+2016-06-12 14:05:51.247 [presence Queue Worker 4]  RosterFlat.saveUserRoster()  FINEST: admin@192.168.43.146 | Saving user roster: <contact weight="1.0" last-seen="1000" preped="simple" name="richmj" activity="1.0" jid="richmj@192.168.43.146" subs="both"/>
+2016-06-12 14:05:51.252 [jabber:iq:roster Queue Worker 4]  RosterFlat.saveUserRoster()  FINEST: admin@192.168.43.146 | Saving user roster: <contact weight="1.0" last-seen="1000" preped="simple" name="richmj" activity="1.0" jid="richmj@192.168.43.146" subs="both"/>
+2016-06-12 14:05:51.252 [presence Queue Worker 2]  RosterFlat.addBuddy()      FINEST:   1. Added buddy to roster: admin@192.168.43.146, name: admin, item: <item name="admin" subscription="none" jid="admin@192.168.43.146"/>
+2016-06-12 14:05:51.252 [presence Queue Worker 2]  RosterFlat.saveUserRoster()  FINEST: richmj@192.168.43.146 | Saving user roster: <contact weight="1.0" last-seen="1000" preped="simple" name="admin" activity="1.0" jid="admin@192.168.43.146" subs="none"/>
+2016-06-12 14:05:51.259 [presence Queue Worker 2]  RosterFlat.addBuddy()      FINEST:   2. Added buddy to roster: admin@192.168.43.146, name: admin, item: <item name="admin" subscription="none" jid="admin@192.168.43.146"/>
+2016-06-12 14:05:51.260 [presence Queue Worker 2]  RosterAbstract.updateBuddySubscription()  FINEST: current_subscription=none for jid=admin@192.168.43.146
+2016-06-12 14:05:51.260 [presence Queue Worker 2]  RosterAbstract$StateTransition.getStateTransition()  FINEST: this=none, pres_type=in_subscribe, res=none_pending_in
+2016-06-12 14:05:51.260 [presence Queue Worker 2]  RosterAbstract.updateBuddySubscription()  FINEST: new_subscription=none_pending_in for presence=in_subscribe
+2016-06-12 14:05:51.260 [presence Queue Worker 2]  RosterFlat.saveUserRoster()  FINEST: richmj@192.168.43.146 | Saving user roster: <contact weight="1.0" last-seen="1000" preped="simple" name="admin" activity="1.0" jid="admin@192.168.43.146" subs="none_pending_in"/>
+2016-06-12 14:05:51.263 [presence Queue Worker 2]  RosterFlat.saveUserRoster()  FINEST: richmj@192.168.43.146 | Saving user roster: <contact weight="1.0" last-seen="1000" preped="simple" name="admin" activity="1.0" jid="admin@192.168.43.146" subs="both"/>
+2016-06-12 14:05:51.270 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: current_subscription=both for jid=richmj@192.168.43.146
+2016-06-12 14:05:51.270 [presence Queue Worker 4]  RosterAbstract$StateTransition.getStateTransition()  FINEST: this=both, pres_type=in_subscribed, res=both
+2016-06-12 14:05:51.270 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: new_subscription=both for presence=in_subscribed
+2016-06-12 14:05:51.271 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: current_subscription=both for jid=richmj@192.168.43.146
+2016-06-12 14:05:51.271 [presence Queue Worker 4]  RosterAbstract$StateTransition.getStateTransition()  FINEST: this=both, pres_type=in_subscribed, res=both
+2016-06-12 14:05:51.271 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: new_subscription=both for presence=in_subscribed
+2016-06-12 14:05:51.271 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: current_subscription=both for jid=richmj@192.168.43.146
+2016-06-12 14:05:51.271 [presence Queue Worker 4]  RosterAbstract$StateTransition.getStateTransition()  FINEST: this=both, pres_type=in_subscribed, res=both
+2016-06-12 14:05:51.271 [presence Queue Worker 4]  RosterAbstract.updateBuddySubscription()  FINEST: new_subscription=both for presence=in_subscribed

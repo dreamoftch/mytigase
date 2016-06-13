@@ -1,0 +1,221 @@
+2016-06-12 15:29:58.381 [pool-15-thread-3]  XMPPIOService.processSocketData()  FINEST:  c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, type: accept, Socket: TLS: c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954 Socket[addr=/192.168.43.146,port=49954,localport=5222], jid: null, READ:<iq xmlns="jabber:client" type="set" to="192.168.43.146" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username>
+<password>user4</password>
+<email></email>
+</query>
+</iq>
+
+2016-06-12 15:29:58.381 [pool-15-thread-3]  XMPPDomBuilderHandler.elementCData()  FINEST: Element CDATA: 
+
+2016-06-12 15:29:58.381 [pool-15-thread-3]  XMPPDomBuilderHandler.startElement()  FINEST: Start element name: iq
+2016-06-12 15:29:58.381 [pool-15-thread-3]  XMPPDomBuilderHandler.startElement()  FINEST: Element attributes names: [xmlns, type, to, id, null, null]
+2016-06-12 15:29:58.381 [pool-15-thread-3]  XMPPDomBuilderHandler.startElement()  FINEST: Element attributes values: [jabber:client, set, 192.168.43.146, aab2a, null, null]
+2016-06-12 15:29:58.381 [pool-15-thread-3]  XMPPDomBuilderHandler.elementCData()  FINEST: Element CDATA: 
+
+2016-06-12 15:29:58.381 [pool-15-thread-3]  XMPPDomBuilderHandler.startElement()  FINEST: Start element name: query
+2016-06-12 15:29:58.381 [pool-15-thread-3]  XMPPDomBuilderHandler.startElement()  FINEST: Element attributes names: [xmlns, null, null, null, null, null]
+2016-06-12 15:29:58.381 [pool-15-thread-3]  XMPPDomBuilderHandler.startElement()  FINEST: Element attributes values: [jabber:iq:register, null, null, null, null, null]
+2016-06-12 15:29:58.381 [pool-15-thread-3]  XMPPDomBuilderHandler.elementCData()  FINEST: Element CDATA: 
+
+2016-06-12 15:29:58.381 [pool-15-thread-3]  XMPPDomBuilderHandler.startElement()  FINEST: Start element name: username
+2016-06-12 15:29:58.381 [pool-15-thread-3]  XMPPDomBuilderHandler.startElement()  FINEST: Element attributes names: null
+2016-06-12 15:29:58.382 [pool-15-thread-3]  XMPPDomBuilderHandler.startElement()  FINEST: Element attributes values: null
+2016-06-12 15:29:58.382 [pool-15-thread-3]  XMPPDomBuilderHandler.startElement()  FINEST: DefXMLNS assigned: <username/>
+2016-06-12 15:29:58.382 [pool-15-thread-3]  XMPPDomBuilderHandler.elementCData()  FINEST: Element CDATA: user4
+2016-06-12 15:29:58.382 [pool-15-thread-3]  XMPPDomBuilderHandler.endElement()  FINEST: End element name: username
+2016-06-12 15:29:58.382 [pool-15-thread-3]  XMPPDomBuilderHandler.elementCData()  FINEST: Element CDATA: 
+
+2016-06-12 15:29:58.382 [pool-15-thread-3]  XMPPDomBuilderHandler.startElement()  FINEST: Start element name: password
+2016-06-12 15:29:58.382 [pool-15-thread-3]  XMPPDomBuilderHandler.startElement()  FINEST: Element attributes names: null
+2016-06-12 15:29:58.382 [pool-15-thread-3]  XMPPDomBuilderHandler.startElement()  FINEST: Element attributes values: null
+2016-06-12 15:29:58.382 [pool-15-thread-3]  XMPPDomBuilderHandler.startElement()  FINEST: DefXMLNS assigned: <password/>
+2016-06-12 15:29:58.382 [pool-15-thread-3]  XMPPDomBuilderHandler.elementCData()  FINEST: Element CDATA: user4
+2016-06-12 15:29:58.382 [pool-15-thread-3]  XMPPDomBuilderHandler.endElement()  FINEST: End element name: password
+2016-06-12 15:29:58.382 [pool-15-thread-3]  XMPPDomBuilderHandler.elementCData()  FINEST: Element CDATA: 
+
+2016-06-12 15:29:58.382 [pool-15-thread-3]  XMPPDomBuilderHandler.startElement()  FINEST: Start element name: email
+2016-06-12 15:29:58.382 [pool-15-thread-3]  XMPPDomBuilderHandler.startElement()  FINEST: Element attributes names: null
+2016-06-12 15:29:58.382 [pool-15-thread-3]  XMPPDomBuilderHandler.startElement()  FINEST: Element attributes values: null
+2016-06-12 15:29:58.382 [pool-15-thread-3]  XMPPDomBuilderHandler.startElement()  FINEST: DefXMLNS assigned: <email/>
+2016-06-12 15:29:58.382 [pool-15-thread-3]  XMPPDomBuilderHandler.endElement()  FINEST: End element name: email
+2016-06-12 15:29:58.383 [pool-15-thread-3]  XMPPDomBuilderHandler.elementCData()  FINEST: Element CDATA: 
+
+2016-06-12 15:29:58.383 [pool-15-thread-3]  XMPPDomBuilderHandler.endElement()  FINEST: End element name: query
+2016-06-12 15:29:58.383 [pool-15-thread-3]  XMPPDomBuilderHandler.elementCData()  FINEST: Element CDATA: 
+
+2016-06-12 15:29:58.383 [pool-15-thread-3]  XMPPDomBuilderHandler.endElement()  FINEST: End element name: iq
+2016-06-12 15:29:58.383 [pool-15-thread-3]  XMPPDomBuilderHandler.endElement()  FINEST: Adding new request: <iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>
+2016-06-12 15:29:58.383 [pool-15-thread-3]  XMPPIOService.processSocketData()  FINEST:  c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, type: accept, Socket: TLS: c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954 Socket[addr=/192.168.43.146,port=49954,localport=5222], jid: null, Read packet: <iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>
+2016-06-12 15:29:58.383 [pool-15-thread-3]  ClientConnectionManager.processSocketData()  FINEST: Processing socket data: from=null, to=null, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>CData size: 5</username><password>CData size: 5</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set from connection: c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954
+2016-06-12 15:29:58.383 [in_5-message-router]  MessageRouter.processPacket()  FINEST:   Processing packet: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set
+2016-06-12 15:29:58.383 [in_5-message-router]  MessageRouter.getLocalComponent()  FINEST: Called for : 192.168.43.146
+2016-06-12 15:29:58.383 [in_5-message-router]  MessageRouter.getLocalComponent()  FINEST: No componentID matches (fast lookup against exact address): 192.168.43.146, for map: [message-archive@tch-pc, vhost-man@tch-pc, s2s@tch-pc, http@tch-pc, monitor@tch-pc, amp@tch-pc, basic-conf@tch-pc, bosh@tch-pc, muc@tch-pc, sess-man@tch-pc, ws2s@tch-pc, c2s@tch-pc, mycomponent@tch-pc, stats@tch-pc]; trying VHost lookup
+2016-06-12 15:29:58.384 [in_5-message-router]  MessageRouter.getLocalComponent()  FINEST: No component name matches (VHost lookup against component name): 192.168.43.146, for map: [vhost-man, amp, c2s, monitor, ws2s, bosh, mycomponent, stats, s2s, http, basic-conf, muc, message-archive, sess-man, message-router], for all VHosts: [192.168.43.146]; trying other forms of addressing
+2016-06-12 15:29:58.384 [in_5-message-router]  MessageRouter.getLocalComponent()  FINEST: Component match failed: 192.168.43.146, for comp: [vhost-man, amp, c2s, monitor, ws2s, bosh, mycomponent, stats, s2s, http, basic-conf, muc, message-archive, sess-man, message-router], basename: 168.43.146
+2016-06-12 15:29:58.384 [in_5-message-router]  MessageRouter.getLocalComponent()  FINEST: Called for : sess-man@tch-pc
+2016-06-12 15:29:58.384 [in_5-message-router]  MessageRouter.processPacket()  FINEST:   1. Packet will be processed by: sess-man@tch-pc, from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set
+2016-06-12 15:29:58.384 [in_5-sess-man]    SessionManager.processPacket()     FINEST:   Received packet: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>CData size: 5</username><password>CData size: 5</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set
+2016-06-12 15:29:58.384 [in_5-sess-man]    SessionManager.processPacket()     FINEST:   processing packet: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>CData size: 5</username><password>CData size: 5</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set, connection: XMPPResourceConnection=[user_jid=null, packets=2, connectioId=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, domain=192.168.43.146, authState=NOT_AUTHORIZED, isAnon=false, isTmp=false]
+2016-06-12 15:29:58.384 [in_5-sess-man]    StartTLS.preProcess()              FINEST:   VHost: Domain: 192.168.43.146, enabled: true, anonym: true, register: true, maxusers: 0, tls: false, s2sSecret: 6431c1b2-d987-4864-ae08-62af4b708672, domainFilter: ALL, domainFilterDomains: null, c2sPortsAllowed: null, saslAllowedMechanisms: null
+2016-06-12 15:29:58.384 [in_5-sess-man]    DomainFilter.preProcess()          FINEST:   Processing: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set
+2016-06-12 15:29:58.384 [in_5-sess-man]    DomainFilter.getDomains()          FINEST:   Domains read from user session: null for VHost: Domain: 192.168.43.146, enabled: true, anonym: true, register: true, maxusers: 0, tls: false, s2sSecret: 6431c1b2-d987-4864-ae08-62af4b708672, domainFilter: ALL, domainFilterDomains: null, c2sPortsAllowed: null, saslAllowedMechanisms: null
+2016-06-12 15:29:58.384 [in_5-sess-man]    XMPPProcessor.canHandle()          FINEST:   XMPPProcessorIfc: MessageCarbons (message-carbons)
+ Request: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set, conn: XMPPResourceConnection=[user_jid=null, packets=3, connectioId=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, domain=192.168.43.146, authState=NOT_AUTHORIZED, isAnon=false, isTmp=false], authorization: null
+2016-06-12 15:29:58.384 [in_5-sess-man]    XMPPProcessor.canHandle()          FINEST:   XMPPProcessorIfc: JabberIqStats (http://jabber.org/protocol/stats)
+ Request: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set, conn: XMPPResourceConnection=[user_jid=null, packets=3, connectioId=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, domain=192.168.43.146, authState=NOT_AUTHORIZED, isAnon=false, isTmp=false], authorization: null
+2016-06-12 15:29:58.384 [in_5-sess-man]    XMPPProcessor.canHandle()          FINEST:   XMPPProcessorIfc: JabberIqAuth (jabber:iq:auth)
+ Request: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set, conn: XMPPResourceConnection=[user_jid=null, packets=3, connectioId=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, domain=192.168.43.146, authState=NOT_AUTHORIZED, isAnon=false, isTmp=false], authorization: null
+2016-06-12 15:29:58.385 [in_5-sess-man]    XMPPProcessor.canHandle()          FINEST:   XMPPProcessorIfc: VCardTemp (vcard-temp)
+ Request: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set, conn: XMPPResourceConnection=[user_jid=null, packets=3, connectioId=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, domain=192.168.43.146, authState=NOT_AUTHORIZED, isAnon=false, isTmp=false], authorization: null
+2016-06-12 15:29:58.385 [in_5-sess-man]    XMPPProcessor.canHandle()          FINEST:   XMPPProcessorIfc: MessageAmp (amp)
+ Request: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set, conn: XMPPResourceConnection=[user_jid=null, packets=3, connectioId=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, domain=192.168.43.146, authState=NOT_AUTHORIZED, isAnon=false, isTmp=false], authorization: null
+2016-06-12 15:29:58.385 [in_5-sess-man]    XMPPProcessor.canHandle()          FINEST:   XMPPProcessorIfc: ServiceDiscovery (disco)
+ Request: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set, conn: XMPPResourceConnection=[user_jid=null, packets=3, connectioId=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, domain=192.168.43.146, authState=NOT_AUTHORIZED, isAnon=false, isTmp=false], authorization: null
+2016-06-12 15:29:58.385 [in_5-sess-man]    XMPPProcessor.canHandle()          FINEST:   XMPPProcessorIfc: UrnXmppPing (urn:xmpp:ping)
+ Request: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set, conn: XMPPResourceConnection=[user_jid=null, packets=3, connectioId=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, domain=192.168.43.146, authState=NOT_AUTHORIZED, isAnon=false, isTmp=false], authorization: null
+2016-06-12 15:29:58.385 [in_5-sess-man]    XMPPProcessor.canHandle()          FINEST:   XMPPProcessorIfc: JabberIqRegister (jabber:iq:register)
+ Request: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set, conn: XMPPResourceConnection=[user_jid=null, packets=3, connectioId=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, domain=192.168.43.146, authState=NOT_AUTHORIZED, isAnon=false, isTmp=false], authorization: AUTHORIZED
+2016-06-12 15:29:58.385 [in_5-sess-man]    SessionManager.walk()              FINEST:   XMPPProcessorIfc: JabberIqRegister (jabber:iq:register)Request: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set, conn: XMPPResourceConnection=[user_jid=null, packets=3, connectioId=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, domain=192.168.43.146, authState=NOT_AUTHORIZED, isAnon=false, isTmp=false]
+2016-06-12 15:29:58.385 [in_5-sess-man]    XMPPProcessor.canHandle()          FINEST:   XMPPProcessorIfc: SaslAuth (urn:ietf:params:xml:ns:xmpp-sasl)
+ Request: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set, conn: XMPPResourceConnection=[user_jid=null, packets=3, connectioId=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, domain=192.168.43.146, authState=NOT_AUTHORIZED, isAnon=false, isTmp=false], authorization: null
+2016-06-12 15:29:58.385 [jabber:iq:register Queue Worker 1]  JabberIqRegister.process()  FINEST: Processing packet: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set
+2016-06-12 15:29:58.385 [in_5-sess-man]    XMPPProcessor.canHandle()          FINEST:   XMPPProcessorIfc: Presence (presence)
+ Request: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set, conn: XMPPResourceConnection=[user_jid=null, packets=3, connectioId=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, domain=192.168.43.146, authState=NOT_AUTHORIZED, isAnon=false, isTmp=false], authorization: null
+2016-06-12 15:29:58.385 [in_5-sess-man]    XMPPProcessor.canHandle()          FINEST:   XMPPProcessorIfc: MessageArchivePlugin (message-archive-xep-0136)
+ Request: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set, conn: XMPPResourceConnection=[user_jid=null, packets=3, connectioId=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, domain=192.168.43.146, authState=NOT_AUTHORIZED, isAnon=false, isTmp=false], authorization: null
+2016-06-12 15:29:58.385 [in_5-sess-man]    XMPPProcessor.canHandle()          FINEST:   XMPPProcessorIfc: DefaultHandlerProc (default-handler)
+ Request: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set, conn: XMPPResourceConnection=[user_jid=null, packets=3, connectioId=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, domain=192.168.43.146, authState=NOT_AUTHORIZED, isAnon=false, isTmp=false], authorization: null
+2016-06-12 15:29:58.385 [in_5-sess-man]    XMPPProcessor.canHandle()          FINEST:   XMPPProcessorIfc: JabberIqRoster (jabber:iq:roster)
+ Request: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set, conn: XMPPResourceConnection=[user_jid=null, packets=3, connectioId=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, domain=192.168.43.146, authState=NOT_AUTHORIZED, isAnon=false, isTmp=false], authorization: null
+2016-06-12 15:29:58.385 [in_5-sess-man]    XMPPProcessor.canHandle()          FINEST:   XMPPProcessorIfc: StartTLS (starttls)
+ Request: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set, conn: XMPPResourceConnection=[user_jid=null, packets=3, connectioId=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, domain=192.168.43.146, authState=NOT_AUTHORIZED, isAnon=false, isTmp=false], authorization: null
+2016-06-12 15:29:58.386 [in_5-sess-man]    XMPPProcessor.canHandle()          FINEST:   XMPPProcessorIfc: MyMessageArchivePlugin (MyMessageArchivePlugin)
+ Request: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set, conn: XMPPResourceConnection=[user_jid=null, packets=3, connectioId=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, domain=192.168.43.146, authState=NOT_AUTHORIZED, isAnon=false, isTmp=false], authorization: null
+2016-06-12 15:29:58.386 [in_5-sess-man]    XMPPProcessor.canHandle()          FINEST:   XMPPProcessorIfc: JabberIqVersion (jabber:iq:version)
+ Request: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set, conn: XMPPResourceConnection=[user_jid=null, packets=3, connectioId=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, domain=192.168.43.146, authState=NOT_AUTHORIZED, isAnon=false, isTmp=false], authorization: null
+2016-06-12 15:29:58.386 [in_5-sess-man]    XMPPProcessor.canHandle()          FINEST:   XMPPProcessorIfc: StartZLib (zlib)
+ Request: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set, conn: XMPPResourceConnection=[user_jid=null, packets=3, connectioId=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, domain=192.168.43.146, authState=NOT_AUTHORIZED, isAnon=false, isTmp=false], authorization: null
+2016-06-12 15:29:58.386 [in_5-sess-man]    XMPPProcessor.canHandle()          FINEST:   XMPPProcessorIfc: SessionOpenProc (session-open)
+ Request: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set, conn: XMPPResourceConnection=[user_jid=null, packets=3, connectioId=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, domain=192.168.43.146, authState=NOT_AUTHORIZED, isAnon=false, isTmp=false], authorization: null
+2016-06-12 15:29:58.386 [in_5-sess-man]    XMPPProcessor.canHandle()          FINEST:   XMPPProcessorIfc: JabberIqPrivacy (jabber:iq:privacy)
+ Request: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set, conn: XMPPResourceConnection=[user_jid=null, packets=3, connectioId=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, domain=192.168.43.146, authState=NOT_AUTHORIZED, isAnon=false, isTmp=false], authorization: null
+2016-06-12 15:29:58.386 [in_5-sess-man]    XMPPProcessor.canHandle()          FINEST:   XMPPProcessorIfc: BindResource (urn:ietf:params:xml:ns:xmpp-bind)
+ Request: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set, conn: XMPPResourceConnection=[user_jid=null, packets=3, connectioId=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, domain=192.168.43.146, authState=NOT_AUTHORIZED, isAnon=false, isTmp=false], authorization: null
+2016-06-12 15:29:58.386 [in_5-sess-man]    XMPPProcessor.canHandle()          FINEST:   XMPPProcessorIfc: JabberIqCommand (http://jabber.org/protocol/commands)
+ Request: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set, conn: XMPPResourceConnection=[user_jid=null, packets=3, connectioId=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, domain=192.168.43.146, authState=NOT_AUTHORIZED, isAnon=false, isTmp=false], authorization: null
+2016-06-12 15:29:58.386 [in_5-sess-man]    XMPPProcessor.canHandle()          FINEST:   XMPPProcessorIfc: SessionCloseProc (session-close)
+ Request: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set, conn: XMPPResourceConnection=[user_jid=null, packets=3, connectioId=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, domain=192.168.43.146, authState=NOT_AUTHORIZED, isAnon=false, isTmp=false], authorization: null
+2016-06-12 15:29:58.386 [in_5-sess-man]    XMPPProcessor.canHandle()          FINEST:   XMPPProcessorIfc: SessionBind (urn:ietf:params:xml:ns:xmpp-session)
+ Request: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set, conn: XMPPResourceConnection=[user_jid=null, packets=3, connectioId=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, domain=192.168.43.146, authState=NOT_AUTHORIZED, isAnon=false, isTmp=false], authorization: null
+2016-06-12 15:29:58.386 [in_5-sess-man]    XMPPProcessor.canHandle()          FINEST:   XMPPProcessorIfc: JabberIqPrivate (jabber:iq:private)
+ Request: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set, conn: XMPPResourceConnection=[user_jid=null, packets=3, connectioId=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, domain=192.168.43.146, authState=NOT_AUTHORIZED, isAnon=false, isTmp=false], authorization: null
+2016-06-12 15:29:58.386 [in_5-sess-man]    OfflineMessages.savePacketForOffLineUser()  FINEST: Packet for offline user not suitable for storing: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set
+2016-06-12 15:29:58.386 [in_5-sess-man]    DomainFilter.filter()              FINEST:   Filtering (packet): from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set
+2016-06-12 15:29:58.386 [in_5-sess-man]    SessionManager.processPacket()     FINEST:   Packet processed by: [jabber:iq:register]
+2016-06-12 15:29:58.395 [jabber:iq:register Queue Worker 1]  RepositoryAccess.register()  FINEST: User added: user4@192.168.43.146, pass: user4
+2016-06-12 15:29:58.400 [jabber:iq:register Queue Worker 1]  RepositoryAccess.register()  FINEST: Registration data set for: user4@192.168.43.146, pass: user4, reg_params: null
+2016-06-12 15:29:58.401 [jabber:iq:register Queue Worker 1]  DomainFilter.filter()  FINEST: Filtering (packet): from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="192.168.43.146" xmlns="jabber:client" type="set" id="aab2a">
+<query xmlns="jabber:iq:register">
+<username>user4</username><password>user4</password><email/></query></iq>, SIZE=177, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=NONE, TYPE=set
+2016-06-12 15:29:58.401 [jabber:iq:register Queue Worker 1]  DomainFilter.getDomains()  FINEST: Domains read from user session: null for VHost: Domain: 192.168.43.146, enabled: true, anonym: true, register: true, maxusers: 0, tls: false, s2sSecret: 6431c1b2-d987-4864-ae08-62af4b708672, domainFilter: ALL, domainFilterDomains: null, c2sPortsAllowed: null, saslAllowedMechanisms: null
+2016-06-12 15:29:58.401 [in_5-message-router]  MessageRouter.processPacket()  FINEST:   Processing packet: from=sess-man@tch-pc, to=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, DATA=<iq xmlns="jabber:client" type="result" from="192.168.43.146" id="aab2a"/>, SIZE=74, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=LOCAL, TYPE=result
+2016-06-12 15:29:58.401 [in_5-message-router]  MessageRouter.getLocalComponent()  FINEST: Called for : c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954
+2016-06-12 15:29:58.401 [in_5-message-router]  MessageRouter.getLocalComponent()  FINEST: No componentID matches (fast lookup against exact address): c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, for map: [message-archive@tch-pc, vhost-man@tch-pc, s2s@tch-pc, http@tch-pc, monitor@tch-pc, amp@tch-pc, basic-conf@tch-pc, bosh@tch-pc, muc@tch-pc, sess-man@tch-pc, ws2s@tch-pc, c2s@tch-pc, mycomponent@tch-pc, stats@tch-pc]; trying VHost lookup
+2016-06-12 15:29:58.402 [in_5-message-router]  MessageRouter.processPacket()  FINEST:   1. Packet will be processed by: c2s@tch-pc, from=sess-man@tch-pc, to=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, DATA=<iq xmlns="jabber:client" type="result" from="192.168.43.146" id="aab2a"/>, SIZE=74, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=LOCAL, TYPE=result
+2016-06-12 15:29:58.402 [in_5-c2s]         ClientConnectionManager.processPacket()  FINEST: Processing packet: from=sess-man@tch-pc, to=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, DATA=<iq xmlns="jabber:client" type="result" from="192.168.43.146" id="aab2a"/>, SIZE=74, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=LOCAL, TYPE=result
+2016-06-12 15:29:58.402 [in_5-c2s]         ConnectionManager.writePacketToSocket()  FINEST: c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, type: accept, Socket: TLS: c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954 Socket[addr=/192.168.43.146,port=49954,localport=5222], jid: null, Writing packet: from=sess-man@tch-pc, to=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, DATA=<iq xmlns="jabber:client" type="result" from="192.168.43.146" id="aab2a"/>, SIZE=74, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=LOCAL, TYPE=result
+2016-06-12 15:29:58.402 [in_5-c2s]         XMPPIOService.processWaitingPackets()  FINEST: c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, type: accept, Socket: TLS: c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954 Socket[addr=/192.168.43.146,port=49954,localport=5222], jid: null, Sending packet: from=sess-man@tch-pc, to=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, DATA=<iq xmlns="jabber:client" type="result" from="192.168.43.146" id="aab2a"/>, SIZE=74, XMLNS=jabber:client, PRIORITY=NORMAL, PERMISSION=LOCAL, TYPE=result
+2016-06-12 15:29:58.403 [in_5-c2s]         XMPPIOService.processWaitingPackets()  FINEST: c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, type: accept, Socket: TLS: c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954 Socket[addr=/192.168.43.146,port=49954,localport=5222], jid: null, SENT: <iq xmlns="jabber:client" type="result" from="192.168.43.146" id="aab2a"/>
+2016-06-12 15:29:59.475 [pool-15-thread-6]  ConnectionManager.serviceStopped()  FINER:  [[c2s]] Connection stopped: c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, type: accept, Socket: TLS: c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954 Socket[unconnected], jid: null
+2016-06-12 15:29:59.481 [pool-15-thread-6]  ClientConnectionManager.xmppStreamClosed()  FINER: Stream closed: c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954
+2016-06-12 15:29:59.481 [pool-15-thread-6]  ClientConnectionManager.xmppStreamClosed()  FINE: Service stopped, sending packet: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="sess-man@tch-pc" type="set" from="c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954" id="94e27e51-2b4e-4f9c-a8f2-dc4211959ce6"><command node="STREAM_CLOSED" xmlns="http://jabber.org/protocol/commands"/></iq>, SIZE=217, XMLNS=null, PRIORITY=SYSTEM, PERMISSION=NONE, TYPE=set
+2016-06-12 15:29:59.482 [in_5-message-router]  MessageRouter.processPacket()  FINEST:   Processing packet: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="sess-man@tch-pc" type="set" from="c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954" id="94e27e51-2b4e-4f9c-a8f2-dc4211959ce6"><command node="STREAM_CLOSED" xmlns="http://jabber.org/protocol/commands"/></iq>, SIZE=217, XMLNS=null, PRIORITY=SYSTEM, PERMISSION=NONE, TYPE=set
+2016-06-12 15:29:59.482 [in_5-message-router]  MessageRouter.getLocalComponent()  FINEST: Called for : sess-man@tch-pc
+2016-06-12 15:29:59.482 [in_5-message-router]  MessageRouter.getLocalComponent()  FINEST: Called for : sess-man@tch-pc
+2016-06-12 15:29:59.482 [in_5-message-router]  MessageRouter.processPacket()  FINEST:   1. Packet will be processed by: sess-man@tch-pc, from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="sess-man@tch-pc" type="set" from="c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954" id="94e27e51-2b4e-4f9c-a8f2-dc4211959ce6"><command node="STREAM_CLOSED" xmlns="http://jabber.org/protocol/commands"/></iq>, SIZE=217, XMLNS=null, PRIORITY=SYSTEM, PERMISSION=NONE, TYPE=set
+2016-06-12 15:29:59.482 [in_5-sess-man]    SessionManager.processPacket()     FINEST:   Received packet: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="sess-man@tch-pc" type="set" from="c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954" id="94e27e51-2b4e-4f9c-a8f2-dc4211959ce6"><command node="STREAM_CLOSED" xmlns="http://jabber.org/protocol/commands"/></iq>, SIZE=217, XMLNS=null, PRIORITY=SYSTEM, PERMISSION=NONE, TYPE=set
+2016-06-12 15:29:59.482 [in_5-sess-man]    SessionManager.processCommand()    FINER:    STREAM_CLOSED command from: c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954
+2016-06-12 15:29:59.482 [session-close Queue Worker 1]  SessionManager$SessionCloseProc.process()  FINEST: Executing connection close for: from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="sess-man@tch-pc" type="set" from="c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954" id="94e27e51-2b4e-4f9c-a8f2-dc4211959ce6"><command node="STREAM_CLOSED" xmlns="http://jabber.org/protocol/commands"/></iq>, SIZE=217, XMLNS=null, PRIORITY=SYSTEM, PERMISSION=NONE, TYPE=set
+2016-06-12 15:29:59.482 [session-close Queue Worker 1]  SessionManager.closeConnection()  FINER: Stream closed from: c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954
+2016-06-12 15:29:59.482 [session-close Queue Worker 1]  DomainFilter.filter()  FINEST:  Filtering (packet): null
+2016-06-12 15:29:59.482 [session-close Queue Worker 1]  DomainFilter.filter()  FINEST:  Filtering (packet): from=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, to=sess-man@tch-pc, DATA=<iq to="sess-man@tch-pc" type="set" from="c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954" id="94e27e51-2b4e-4f9c-a8f2-dc4211959ce6"><command node="STREAM_CLOSED" xmlns="http://jabber.org/protocol/commands"/></iq>, SIZE=217, XMLNS=null, PRIORITY=SYSTEM, PERMISSION=NONE, TYPE=set
+2016-06-12 15:29:59.483 [in_5-message-router]  MessageRouter.processPacket()  FINEST:   Processing packet: from=sess-man@tch-pc, to=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, DATA=<iq to="c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954" type="result" from="sess-man@tch-pc" id="94e27e51-2b4e-4f9c-a8f2-dc4211959ce6"/>, SIZE=141, XMLNS=null, PRIORITY=SYSTEM, PERMISSION=NONE, TYPE=result
+2016-06-12 15:29:59.483 [in_5-message-router]  MessageRouter.getLocalComponent()  FINEST: Called for : c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954
+2016-06-12 15:29:59.483 [in_5-message-router]  MessageRouter.getLocalComponent()  FINEST: No componentID matches (fast lookup against exact address): c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, for map: [message-archive@tch-pc, vhost-man@tch-pc, s2s@tch-pc, http@tch-pc, monitor@tch-pc, amp@tch-pc, basic-conf@tch-pc, bosh@tch-pc, muc@tch-pc, sess-man@tch-pc, ws2s@tch-pc, c2s@tch-pc, mycomponent@tch-pc, stats@tch-pc]; trying VHost lookup
+2016-06-12 15:29:59.483 [in_5-message-router]  MessageRouter.getLocalComponent()  FINEST: Called for : c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954
+2016-06-12 15:29:59.483 [in_5-message-router]  MessageRouter.getLocalComponent()  FINEST: No componentID matches (fast lookup against exact address): c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, for map: [message-archive@tch-pc, vhost-man@tch-pc, s2s@tch-pc, http@tch-pc, monitor@tch-pc, amp@tch-pc, basic-conf@tch-pc, bosh@tch-pc, muc@tch-pc, sess-man@tch-pc, ws2s@tch-pc, c2s@tch-pc, mycomponent@tch-pc, stats@tch-pc]; trying VHost lookup
+2016-06-12 15:29:59.483 [in_5-message-router]  MessageRouter.processPacket()  FINEST:   1. Packet will be processed by: c2s@tch-pc, from=sess-man@tch-pc, to=c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954, DATA=<iq to="c2s@tch-pc/192.168.43.146_5222_192.168.43.146_49954" type="result" from="sess-man@tch-pc" id="94e27e51-2b4e-4f9c-a8f2-dc4211959ce6"/>, SIZE=141, XMLNS=null, PRIORITY=SYSTEM, PERMISSION=NONE, TYPE=result
+2016-06-12 15:29:59.483 [in_5-c2s]         ClientConnectionManager$StoppedHandler.responseReceived()  FINEST: Response for stop received...
