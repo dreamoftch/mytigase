@@ -4,8 +4,6 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.logging.Logger;
 
-import com.richmj.enums.RichmjMessageBodyEnum;
-
 import tigase.db.NonAuthUserRepository;
 import tigase.db.TigaseDBException;
 import tigase.server.Message;
@@ -83,11 +81,12 @@ public class RichmjPlugin extends AnnotatedXMPPProcessor implements XMPPProcesso
 	 */
 	private boolean needHandle(Packet packet, XMPPResourceConnection session) throws NotAuthorizedException {
 		if (session == null) {
-			logger.info(ID + ", 当前用户离线？:");
+			logger.info(ID + ", 当前用户离线");
 			return false;
 		}
-		if (C2SDeliveryErrorProcessor.isDeliveryError(packet))
+		if (C2SDeliveryErrorProcessor.isDeliveryError(packet)){
 			return false;
+		}
 		BareJID id = (packet.getStanzaFrom() != null) ? packet.getStanzaFrom().getBareJID() : null;
 		if(!session.isUserId(id)){
 			logger.info(ID + ", this message does not belong to current session");

@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 
 import com.richmj.dao.RichmjMessageDao;
 import com.richmj.models.RichmjMessage;
+import com.richmj.utils.JdbcUtil;
 
 import tigase.conf.ConfigurationException;
 import tigase.server.AbstractMessageReceiver;
@@ -16,6 +17,8 @@ import tigase.server.Packet;
 public class RichmjComponent extends AbstractMessageReceiver{
 
 	private static final Logger logger = Logger.getLogger(RichmjComponent.class.getName());
+	
+	String jdbcUrl = null;
 	
 	@Override
 	public void processPacket(Packet packet) {
@@ -50,7 +53,15 @@ public class RichmjComponent extends AbstractMessageReceiver{
 
 	@Override
 	public Map<String, Object> getDefaults(Map<String, Object> params) {
-	    return super.getDefaults(params);
+		String jdbcUrlPropertyKey = "--user-db-uri";
+		Map<String, Object> result = super.getDefaults(params);
+		if(params.containsKey(jdbcUrlPropertyKey)){
+			jdbcUrl = String.valueOf(params.get(jdbcUrlPropertyKey));
+			logger.info("init jdbcUrl :" + jdbcUrl);
+		}else{
+			logger.log(Level.SEVERE, "jdbcUrl为空");
+		}
+		return result;
 	}
 
 	@Override
@@ -58,6 +69,12 @@ public class RichmjComponent extends AbstractMessageReceiver{
 	    super.setProperties(props);
 	}
 	
+	@Override
+	public void initializationCompleted() {
+		super.initializationCompleted();
+		JdbcUtil.init(jdbcUrl);
+	}
+
 	@Override
 	public String getDiscoDescription() {
 	  return "脉佳网络component";
