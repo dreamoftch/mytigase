@@ -6,6 +6,19 @@
 </query>
 </iq>
 
+，errorCode失败code，定义见更新日志
+
+
+      **0.0.3 (2016.06.15)：**
+      
+      1.注册/更新密码/登陆/找回密码接口，返回结果添加“errorCode”字段，该字段只有当resCode=200的时候才有值，用于标示失败原因，具体原因描述见2.3.4.5
+      
+      2.注册接口中的errorCode定义：errorCode=1表示手机号格式错误
+
+db-create-mysql.sh tigase_username tigase_password database_name root_username root_password database_host
+
+db-create-mysql.sh root root
+
 2016-06-12 15:29:58.381 [pool-15-thread-3]  XMPPDomBuilderHandler.elementCData()  FINEST: Element CDATA: 
 
 2016-06-12 15:29:58.381 [pool-15-thread-3]  XMPPDomBuilderHandler.startElement()  FINEST: Start element name: iq

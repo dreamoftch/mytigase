@@ -1,6 +1,7 @@
 package com.richmj.components;
 
 
+
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,19 +14,63 @@ import tigase.conf.ConfigurationException;
 import tigase.server.AbstractMessageReceiver;
 import tigase.server.Message;
 import tigase.server.Packet;
+import tigase.util.TigaseStringprepException;
+import tigase.xml.Element;
+import tigase.xmpp.JID;
 
 public class RichmjComponent extends AbstractMessageReceiver{
 
 	private static final Logger logger = Logger.getLogger(RichmjComponent.class.getName());
 	
-	String jdbcUrl = null;
+	private String jdbcUrl = null;
+	private String serverHost = null;
 	
 	@Override
 	public void processPacket(Packet packet) {
-		logger.info("RichmjComponent 接收到packet ---->：" + packet);
+		logger.info("自定义Component RichmjComponent收到 packet ---->：" + packet);
+		if(isPacketFromRichMJ(packet)){
+			handleRichMJPacket(packet);
+			return;
+		}
 		saveMessage(packet);
 	}
-	
+
+	private void handleRichMJPacket(Packet packet) {
+		try {
+			logger.info("这个packet是来自richMJ的，开始handleRichMJPacket");
+			//创建一个新的packet，然后将这个packet的from/to设置为指定的用户
+			Packet richmjPacket = packet.copyElementOnly();
+			Element element = richmjPacket.getElement();
+			//将这个packet的from/to,packetFrom/packetTo设置为指定的用户
+			element.setAttribute("from", element.getAttributeStaticStr("richmjFrom"));//richmjFrom表示代理的用户
+			element.setAttribute("to", element.getAttributeStaticStr("richmjTo"));//richmjTo表示实际希望抵达的目标地址
+			richmjPacket.setPacketFrom(JID.jidInstance(element.getAttributeStaticStr("richmjFrom")));
+			richmjPacket.setPacketTo(JID.jidInstance(element.getAttributeStaticStr("richmjTo")));
+			element.removeAttribute("richmjFrom");
+			element.removeAttribute("richmjTo");
+			logger.info("RichmjComponent处理过之后的packet=====================>:" + richmjPacket);
+			addOutPacket(richmjPacket);
+		} catch (TigaseStringprepException e) {
+			logger.log(Level.WARNING, "RichmjComponent handleRichMJPacket 异常:", e);
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 判断packet是不是richmj发送的
+	 * @param packet
+	 * @return
+	 */
+	private boolean isPacketFromRichMJ(Packet packet) {
+		String from = packet.getStanzaFrom().getBareJID().toString();
+		String expectFrom = "richmj@" + serverHost;
+		logger.info("from:" + from + ", expectFrom:" + expectFrom);
+		if(from != null && expectFrom.toLowerCase().equals(from.toLowerCase())){
+			return true;
+		}
+		return false;
+	}
+
 	/**
 	 * 保存该消息
 	 * @param packet
@@ -54,12 +99,19 @@ public class RichmjComponent extends AbstractMessageReceiver{
 	@Override
 	public Map<String, Object> getDefaults(Map<String, Object> params) {
 		String jdbcUrlPropertyKey = "--user-db-uri";
+		String serverHostPropertyKey = "--virt-hosts";
 		Map<String, Object> result = super.getDefaults(params);
 		if(params.containsKey(jdbcUrlPropertyKey)){
 			jdbcUrl = String.valueOf(params.get(jdbcUrlPropertyKey));
 			logger.info("init jdbcUrl :" + jdbcUrl);
 		}else{
 			logger.log(Level.SEVERE, "jdbcUrl为空");
+		}
+		if(params.containsKey(serverHostPropertyKey)){
+			serverHost = String.valueOf(params.get(serverHostPropertyKey));
+			logger.info("init serverHost :" + serverHost);
+		}else{
+			logger.log(Level.SEVERE, "serverHost为空");
 		}
 		return result;
 	}
@@ -77,7 +129,7 @@ public class RichmjComponent extends AbstractMessageReceiver{
 
 	@Override
 	public String getDiscoDescription() {
-	  return "脉佳网络component";
+	  return "脉佳网络组件";
 	}
 
 }
