@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.richmj.constants.Constant;
 import com.richmj.dao.RichmjMessageDao;
 import com.richmj.models.RichmjMessage;
 import com.richmj.utils.JdbcUtil;
@@ -42,12 +43,14 @@ public class RichmjComponent extends AbstractMessageReceiver{
 			Packet richmjPacket = packet.copyElementOnly();
 			Element element = richmjPacket.getElement();
 			//将这个packet的from/to,packetFrom/packetTo设置为指定的用户
-			element.setAttribute("from", element.getAttributeStaticStr("richmjFrom"));//richmjFrom表示代理的用户
-			element.setAttribute("to", element.getAttributeStaticStr("richmjTo"));//richmjTo表示实际希望抵达的目标地址
-			richmjPacket.setPacketFrom(JID.jidInstance(element.getAttributeStaticStr("richmjFrom")));
-			richmjPacket.setPacketTo(JID.jidInstance(element.getAttributeStaticStr("richmjTo")));
-			element.removeAttribute("richmjFrom");
-			element.removeAttribute("richmjTo");
+			String desireFrom = element.getAttributeStaticStr(Constant.RICHMJ_STANZA_FROM);
+			String desireTo = element.getAttributeStaticStr(Constant.RICHMJ_STANZA_TO);
+			element.setAttribute("from", desireFrom);//richmjFrom表示代理的用户
+			element.setAttribute("to", desireTo);//richmjTo表示实际希望抵达的目标地址
+			richmjPacket.setPacketFrom(JID.jidInstance(desireFrom));
+			richmjPacket.setPacketTo(JID.jidInstance(desireTo));
+			element.removeAttribute(Constant.RICHMJ_STANZA_FROM);
+			element.removeAttribute(Constant.RICHMJ_STANZA_TO);
 			logger.info("RichmjComponent处理过之后的packet=====================>:" + richmjPacket);
 			addOutPacket(richmjPacket);
 		} catch (TigaseStringprepException e) {
