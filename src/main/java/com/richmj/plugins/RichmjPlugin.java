@@ -1,7 +1,5 @@
 package com.richmj.plugins;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.logging.Logger;
@@ -10,9 +8,7 @@ import tigase.db.NonAuthUserRepository;
 import tigase.db.TigaseDBException;
 import tigase.server.Message;
 import tigase.server.Packet;
-import tigase.server.Presence;
 import tigase.util.DNSResolver;
-import tigase.util.TigaseStringprepException;
 import tigase.xml.Element;
 import tigase.xmpp.BareJID;
 import tigase.xmpp.JID;
@@ -58,60 +54,10 @@ public class RichmjPlugin extends AnnotatedXMPPProcessor implements XMPPProcesso
 	public void process(Packet packet, XMPPResourceConnection session, NonAuthUserRepository repo,
 			Queue<Packet> results, Map<String, Object> settings) throws XMPPException {
 		//判断是否是需要处理的message
-		if(needHandle(packet, session, results)){
+		if(needHandle(packet, session)){
 			logger.info(ID + ", begin to deal with richmj data");
 			//转发该消息到componnet
 			results.offer(generateNewPacket(packet));
-		}
-	}
-
-	private void autoBuildGroup(Packet packet, Queue<Packet> results) {
-		/**
-		
-		<presence id="0owO0-30" to="test-room-3@muc.192.168.43.146/richmj">
-		  <x xmlns="http://jabber.org/protocol/muc"/>
-		</presence>
-		
-		<message
-		    from='crone1@shakespeare.lit/desktop'
-		    to='hecate@shakespeare.lit'>
-		  <x xmlns='jabber:x:conference'
-		     jid='test-room-3@muc.192.168.43.146/richmj'
-		     password='cauldronburn'
-		     reason='Hey Hecate, this is the place for all good witches!'/>
-		</message>
-		
-		*/	
-		Element bodyElement = packet.getElement().findChildStaticStr(Message.MESSAGE_BODY_PATH);
-		if(bodyElement.getCData() != null && bodyElement.getCData().equals("autoBuildGroup")){
-			//自动创建group并且邀请指定的用户自动进入
-			try {
-				Element presence = new Element(Presence.ELEM_NAME);
-				presence.setAttribute("from", packet.getStanzaFrom().toString());
-				presence.setAttribute("to", JID.jidInstance("test-room-4@muc.192.168.43.146/richmj").toString());
-				List<Element> children = new ArrayList<Element>();
-				Element mucProtocalElem = new Element("x");
-				mucProtocalElem.setXMLNS("http://jabber.org/protocol/muc");
-				children.add(mucProtocalElem);
-				presence.addChildren(children);
-				Packet autoBuildGroupPacket = Packet.packetInstance(presence);
-				logger.info("autoBuildGroup--------------------------------------:" + autoBuildGroupPacket);
-				results.offer(autoBuildGroupPacket);
-				
-				Element message = new Element(Message.ELEM_NAME);
-				message.setAttribute("from", JID.jidInstance("admin@192.168.43.146").toString());
-				message.setAttribute("to", JID.jidInstance("test-room-4@muc.192.168.43.146/admin").toString());
-				children = new ArrayList<Element>();
-				mucProtocalElem = new Element("x");
-				mucProtocalElem.setXMLNS("http://jabber.org/protocol/muc");
-				children.add(mucProtocalElem);
-				message.addChildren(children);
-				autoBuildGroupPacket = Packet.packetInstance(message);
-				logger.info("autoBuildGroup--------------------------------------:" + autoBuildGroupPacket);
-				results.offer(autoBuildGroupPacket);
-			} catch (TigaseStringprepException e) {
-				e.printStackTrace();
-			}
 		}
 	}
 
@@ -133,7 +79,7 @@ public class RichmjPlugin extends AnnotatedXMPPProcessor implements XMPPProcesso
 	 * @return
 	 * @throws NotAuthorizedException
 	 */
-	private boolean needHandle(Packet packet, XMPPResourceConnection session, Queue<Packet> results) throws NotAuthorizedException {
+	private boolean needHandle(Packet packet, XMPPResourceConnection session) throws NotAuthorizedException {
 		if (session == null) {
 			logger.info(ID + ", 当前用户离线");
 			return false;
@@ -141,8 +87,6 @@ public class RichmjPlugin extends AnnotatedXMPPProcessor implements XMPPProcesso
 		if (C2SDeliveryErrorProcessor.isDeliveryError(packet)){
 			return false;
 		}
-		logger.info("packet.getElement().findChildStaticStr：" + packet.getElement().findChildStaticStr(Message.MESSAGE_BODY_PATH));
-		logger.info("packet.getElemCDataStaticStr:" + packet.getElemCDataStaticStr(Message.MESSAGE_BODY_PATH));
 		BareJID id = (packet.getStanzaFrom() != null) ? packet.getStanzaFrom().getBareJID() : null;
 		if(!session.isUserId(id)){
 			logger.info(ID + ", this message does not belong to current session");
@@ -159,10 +103,6 @@ public class RichmjPlugin extends AnnotatedXMPPProcessor implements XMPPProcesso
 		}
 		String bodyType = bodyElement.getAttributeStaticStr("type");
 		logger.info(ID + ", bodyType:" + bodyType);
-		
-		//自动创建group并且邀请指定的用户自动进入
-		autoBuildGroup(packet, results);
-		
 		
 		if(bodyType == null){
 			return false;
