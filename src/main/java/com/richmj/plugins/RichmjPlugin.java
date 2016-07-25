@@ -104,9 +104,9 @@ public class RichmjPlugin extends AnnotatedXMPPProcessor implements XMPPProcesso
 		String bodyType = bodyElement.getAttributeStaticStr("type");
 		logger.info(ID + ", bodyType:" + bodyType);
 		
-		/*if(bodyType == null){
+		if(bodyType == null){
 			return false;
-		}*/
+		}
 		return true;
 	}
 
