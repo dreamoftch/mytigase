@@ -1,16 +1,24 @@
 package com.richmj.models;
 
-public class RichmjMessage {
+public class CustomChatRecord {
 
 	private int id;
 	/**
 	 * 发消息的人
 	 */
-	private String fromId;
+	private Long fromId;
 	/**
 	 * 接收消息的人
 	 */
-	private String toId;
+	private Long toId;
+	/**
+	 * fromId/toId中的较大者
+	 */
+	private Long bigId;
+	/**
+	 * fromId/toId中的较小者
+	 */
+	private Long smallId;
 	/**
 	 * 类型
 	 */
@@ -26,16 +34,16 @@ public class RichmjMessage {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getFromId() {
+	public Long getFromId() {
 		return fromId;
 	}
-	public void setFromId(String fromId) {
+	public void setFromId(Long fromId) {
 		this.fromId = fromId;
 	}
-	public String getToId() {
+	public Long getToId() {
 		return toId;
 	}
-	public void setToId(String toId) {
+	public void setToId(Long toId) {
 		this.toId = toId;
 	}
 	public String getType() {
@@ -49,5 +57,17 @@ public class RichmjMessage {
 	}
 	public void setMessage(String message) {
 		this.message = message;
+	}
+	public Long getBigId() {
+		return bigId;
+	}
+	public void setBigId(Long bigId) {
+		this.bigId = bigId;
+	}
+	public Long getSmallId() {
+		return smallId;
+	}
+	public void setSmallId(Long smallId) {
+		this.smallId = smallId;
 	}
 }

@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 import com.richmj.constants.Constant;
 import com.richmj.dao.RichmjMessageDao;
-import com.richmj.models.RichmjMessage;
+import com.richmj.models.CustomChatRecord;
 import com.richmj.utils.JdbcUtil;
 
 import tigase.conf.ConfigurationException;
@@ -24,6 +24,8 @@ public class RichmjComponent extends AbstractMessageReceiver{
 	private static final Logger logger = Logger.getLogger(RichmjComponent.class.getName());
 	
 	private String jdbcUrl = null;
+	private static String jdbcUsername = null;
+	private static String jdbcPassword = null;
 	private String serverHost = null;
 	
 	@Override
@@ -80,36 +82,71 @@ public class RichmjComponent extends AbstractMessageReceiver{
 	 */
 	private void saveMessage(Packet packet) {
 		try {
-			RichmjMessage message = new RichmjMessage();
-			message.setFromId(getFromId(packet));
-			message.setToId(getToId(packet));
+			CustomChatRecord message = new CustomChatRecord();
+			message.setFromId(getId(packet.getStanzaFrom()));
+			message.setToId(getId(packet.getStanzaTo()));
 			message.setType(packet.getElement().findChildStaticStr(Message.MESSAGE_BODY_PATH).getAttributeStaticStr("type"));
 			message.setMessage(packet.getElement().toString());
+			message.setBigId(getBigId(message));
+			message.setSmallId(getSmallId(message));
 			new RichmjMessageDao().saveMessage(message);
 		} catch (Exception e) {
 			logger.log(Level.WARNING, "保存 RichmjMessage 消息异常", e);
 		}
 	}
 	
-	private String getToId(Packet packet) {
-		return packet.getStanzaTo() == null ? null : packet.getStanzaTo().getBareJID().toString();
+	/**
+	 * 获取fromId/toId中的较大者
+	 * @param message
+	 * @return
+	 */
+	private Long getBigId(CustomChatRecord message){
+		Long fromId = message.getFromId();
+		Long toId = message.getToId();
+		if(fromId == null){
+			return toId == null ? 0 : toId;
+		}
+		if(toId == null){
+			return fromId;
+		}
+		return Math.max(fromId, toId);
+	}
+	/**
+	 * 获取fromId/toId中的较小者
+	 * @param message
+	 * @return
+	 */
+	private Long getSmallId(CustomChatRecord message){
+		Long fromId = message.getFromId();
+		Long toId = message.getToId();
+		if(fromId == null){
+			return toId == null ? 0 : toId;
+		}
+		if(toId == null){
+			return fromId;
+		}
+		return Math.min(fromId, toId);
 	}
 
-	private String getFromId(Packet packet) {
-		return packet.getStanzaFrom() == null ? null : packet.getStanzaFrom().getBareJID().toString();
+	private Long getId(JID jid) {
+		if(jid == null){
+			return 0l;
+		}
+		String bareJID = jid.getBareJID().toString();
+		if(bareJID == null){
+			return 0l;
+		}
+		String id = bareJID.substring(0, bareJID.indexOf("@"));
+		if(id.matches("[0-9]+")){
+			return Long.valueOf(id);
+		}
+		return 0l;
 	}
 
 	@Override
 	public Map<String, Object> getDefaults(Map<String, Object> params) {
-		String jdbcUrlPropertyKey = "--user-db-uri";
 		String serverHostPropertyKey = "--virt-hosts";
 		Map<String, Object> result = super.getDefaults(params);
-		if(params.containsKey(jdbcUrlPropertyKey)){
-			jdbcUrl = String.valueOf(params.get(jdbcUrlPropertyKey));
-			logger.info("init jdbcUrl :" + jdbcUrl);
-		}else{
-			logger.log(Level.SEVERE, "jdbcUrl为空");
-		}
 		if(params.containsKey(serverHostPropertyKey)){
 			serverHost = String.valueOf(params.get(serverHostPropertyKey));
 			logger.info("init serverHost :" + serverHost);
@@ -121,13 +158,34 @@ public class RichmjComponent extends AbstractMessageReceiver{
 
 	@Override
 	public void setProperties(Map<String, Object> props) throws ConfigurationException {
+		String jdbcUrlPropertyKey = "business-db-uri";
+		String jdbcUsernamePropertyKey = "business-db-username";
+		String jdbcPasswordPropertyKey = "business-db-password";
+		if(props.containsKey(jdbcUrlPropertyKey)){
+			jdbcUrl = String.valueOf(props.get(jdbcUrlPropertyKey));
+			logger.info("init jdbcUrl :" + jdbcUrl);
+		}else{
+			logger.log(Level.SEVERE, "jdbcUrl为空");
+		}
+		if(props.containsKey(jdbcUsernamePropertyKey)){
+			jdbcUsername = String.valueOf(props.get(jdbcUsernamePropertyKey));
+			logger.info("init jdbcUsername :" + jdbcUsername);
+		}else{
+			logger.log(Level.SEVERE, "jdbcUsername为空");
+		}
+		if(props.containsKey(jdbcPasswordPropertyKey)){
+			jdbcPassword = String.valueOf(props.get(jdbcPasswordPropertyKey));
+			logger.info("init jdbcPassword :" + jdbcPassword);
+		}else{
+			logger.log(Level.SEVERE, "jdbcPassword为空");
+		}
 	    super.setProperties(props);
 	}
 	
 	@Override
 	public void initializationCompleted() {
 		super.initializationCompleted();
-		JdbcUtil.init(jdbcUrl);
+		JdbcUtil.init(jdbcUrl, jdbcUsername, jdbcPassword);
 	}
 
 	@Override
