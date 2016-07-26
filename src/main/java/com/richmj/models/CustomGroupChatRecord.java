@@ -1,6 +1,10 @@
 package com.richmj.models;
 
-public class CustomChatRecord {
+/**
+ * 群聊中发送的自定义消息
+ * @author TianChaohui
+ */
+public class CustomGroupChatRecord {
 
 	private int id;
 	
@@ -10,17 +14,9 @@ public class CustomChatRecord {
 	 */
 	private Long fromId;
 	/**
-	 * 接收消息的人
+	 * 群id
 	 */
-	private Long toId;
-	/**
-	 * fromId/toId中的较大者
-	 */
-	private Long bigId;
-	/**
-	 * fromId/toId中的较小者
-	 */
-	private Long smallId;
+	private Long groupId;
 	/**
 	 * 类型
 	 */
@@ -42,12 +38,6 @@ public class CustomChatRecord {
 	public void setFromId(Long fromId) {
 		this.fromId = fromId;
 	}
-	public Long getToId() {
-		return toId;
-	}
-	public void setToId(Long toId) {
-		this.toId = toId;
-	}
 	public Integer getType() {
 		return type;
 	}
@@ -60,28 +50,22 @@ public class CustomChatRecord {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	public Long getBigId() {
-		return bigId;
-	}
-	public void setBigId(Long bigId) {
-		this.bigId = bigId;
-	}
-	public Long getSmallId() {
-		return smallId;
-	}
-	public void setSmallId(Long smallId) {
-		this.smallId = smallId;
-	}
 	public String getUuid() {
 		return uuid;
 	}
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
 	}
+	public Long getGroupId() {
+		return groupId;
+	}
+	public void setGroupId(Long groupId) {
+		this.groupId = groupId;
+	}
 	@Override
 	public String toString() {
-		return "CustomChatRecord [id=" + id + ", uuid=" + uuid + ", fromId=" + fromId + ", toId=" + toId + ", bigId="
-				+ bigId + ", smallId=" + smallId + ", type=" + type + ", message=" + message + "]";
+		return "CustomGroupChatRecord [id=" + id + ", uuid=" + uuid + ", fromId=" + fromId + ", groupId=" + groupId
+				+ ", type=" + type + ", message=" + message + "]";
 	}
 	
 }

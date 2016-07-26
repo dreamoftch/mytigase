@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.richmj.models.CustomChatRecord;
+import com.richmj.models.CustomGroupChatRecord;
 
 /**
  * 数据库操作工具类
@@ -56,10 +57,10 @@ public final class JdbcUtil {
 	}
 	
 	/**
-	 * 插入RichmjMessage
+	 * 插入CustomChatRecord
 	 * @param message
 	 */
-	public static void insertMessage(CustomChatRecord message){
+	public static void insertChatMessage(CustomChatRecord message){
 		Connection conn = getConnection();
 		PreparedStatement insertMessageStatement = null;
 		if(conn == null){
@@ -70,13 +71,38 @@ public final class JdbcUtil {
 			insertMessageStatement = conn.prepareStatement("insert into custom_chat_record(from_id, to_id, type, message, big_id, small_id) values(?, ?, ?, ?, ?, ?)");
 			insertMessageStatement.setLong(1, message.getFromId());
 			insertMessageStatement.setLong(2, message.getToId());
-			insertMessageStatement.setString(3, message.getType());
+			insertMessageStatement.setInt(3, message.getType());
 			insertMessageStatement.setString(4, message.getMessage());
 			insertMessageStatement.setLong(5, message.getBigId());
 			insertMessageStatement.setLong(6, message.getSmallId());
 			insertMessageStatement.executeUpdate();
 		} catch (Exception e) {
-			logger.log(Level.SEVERE, "执行插入RichmjMessage记录异常：", e);
+			logger.log(Level.SEVERE, String.format("执行插入RichmjMessage记录异常, message: %s：", message), e);
+		}finally {
+			closeJdbcResource(insertMessageStatement, conn);
+		}
+	}
+	
+	/**
+	 * 插入CustomGroupChatRecord
+	 * @param message
+	 */
+	public static void insertGroupChatMessage(CustomGroupChatRecord message){
+		Connection conn = getConnection();
+		PreparedStatement insertMessageStatement = null;
+		if(conn == null){
+			logger.log(Level.SEVERE, "数据库连接为空：");
+			return;
+		}
+		try {
+			insertMessageStatement = conn.prepareStatement("insert into custom_group_chat_record(from_id, group_id, type, message) values(?, ?, ?, ?)");
+			insertMessageStatement.setLong(1, message.getFromId());
+			insertMessageStatement.setLong(2, message.getGroupId());
+			insertMessageStatement.setInt(3, message.getType());
+			insertMessageStatement.setString(4, message.getMessage());
+			insertMessageStatement.executeUpdate();
+		} catch (Exception e) {
+			logger.log(Level.SEVERE, String.format("执行插入CustomGroupChatRecord记录异常, message: %s：", message), e);
 		}finally {
 			closeJdbcResource(insertMessageStatement, conn);
 		}

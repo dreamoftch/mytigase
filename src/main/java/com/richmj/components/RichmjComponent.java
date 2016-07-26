@@ -8,7 +8,9 @@ import java.util.logging.Logger;
 
 import com.richmj.constants.Constant;
 import com.richmj.dao.RichmjMessageDao;
+import com.richmj.enums.CustomChatMessageTypeEnum;
 import com.richmj.models.CustomChatRecord;
+import com.richmj.models.CustomGroupChatRecord;
 import com.richmj.utils.JdbcUtil;
 
 import tigase.conf.ConfigurationException;
@@ -81,18 +83,67 @@ public class RichmjComponent extends AbstractMessageReceiver{
 	 * @param packet
 	 */
 	private void saveMessage(Packet packet) {
+		String messageType = packet.getElement().getAttributeStaticStr("type");
+		if(messageType == null || messageType.trim().isEmpty()){
+			logger.warning("messageType为空");
+		}
+		if(messageType.equalsIgnoreCase("chat")){
+			saveChatMessage(packet);
+		}else if(messageType.equalsIgnoreCase("groupchat")){
+			saveGroupChatMessage(packet);
+		}else{
+			logger.warning("无效的messageType " + messageType);
+		}
+	}
+	
+	/**
+	 * 保存群聊自定义消息
+	 * @param packet
+	 */
+	private void saveGroupChatMessage(Packet packet){
+		try {
+			CustomGroupChatRecord message = new CustomGroupChatRecord();
+			message.setFromId(getId(packet.getStanzaFrom()));
+			message.setGroupId(getId(packet.getStanzaTo()));
+			message.setType(getMessageType(packet));
+			message.setMessage(packet.getElement().toString());
+			new RichmjMessageDao().saveGroupChatMessage(message);
+		} catch (Exception e) {
+			logger.log(Level.WARNING, "保存 CustomGroupChatRecord 消息异常", e);
+		}
+	}
+	
+	/**
+	 * 保存1-1单聊自定义消息
+	 * @param packet
+	 */
+	private void saveChatMessage(Packet packet){
 		try {
 			CustomChatRecord message = new CustomChatRecord();
 			message.setFromId(getId(packet.getStanzaFrom()));
 			message.setToId(getId(packet.getStanzaTo()));
-			message.setType(packet.getElement().findChildStaticStr(Message.MESSAGE_BODY_PATH).getAttributeStaticStr("type"));
+			message.setType(getMessageType(packet));
 			message.setMessage(packet.getElement().toString());
 			message.setBigId(getBigId(message));
 			message.setSmallId(getSmallId(message));
-			new RichmjMessageDao().saveMessage(message);
+			new RichmjMessageDao().saveChatMessage(message);
 		} catch (Exception e) {
-			logger.log(Level.WARNING, "保存 RichmjMessage 消息异常", e);
+			logger.log(Level.WARNING, "保存 CustomChatRecord 消息异常", e);
 		}
+	}
+	
+	private Integer getMessageType(Packet packet){
+		String type = packet.getElement().findChildStaticStr(Message.MESSAGE_BODY_PATH).getAttributeStaticStr("type");
+		if(type == null){
+			logger.warning("CustomChatMessageType 为空");
+			return 0;
+		}
+		CustomChatMessageTypeEnum messageTypeEnum = CustomChatMessageTypeEnum.getByValue(type);
+		if(messageTypeEnum == null){
+			logger.warning(String.format("CustomChatMessageType %s 无效", type));
+			return 0;
+		}
+		return messageTypeEnum.getCode();
 	}
 	
 	/**
@@ -128,6 +179,11 @@ public class RichmjComponent extends AbstractMessageReceiver{
 		return Math.min(fromId, toId);
 	}
 
+	/**
+	 * 获取jid的name，因为聊天系统的用户name是业务系统用户的id，群名称是业务系统群的id，所以均为数字类型
+	 * @param jid
+	 * @return
+	 */
 	private Long getId(JID jid) {
 		if(jid == null){
 			return 0l;
@@ -136,6 +192,7 @@ public class RichmjComponent extends AbstractMessageReceiver{
 		if(bareJID == null){
 			return 0l;
 		}
+		//截取@前的内容，例如： 77@192.168.1.120/tch-pc截取出77
 		String id = bareJID.substring(0, bareJID.indexOf("@"));
 		if(id.matches("[0-9]+")){
 			return Long.valueOf(id);
