@@ -11,6 +11,7 @@ import com.richmj.dao.RichmjMessageDao;
 import com.richmj.enums.CustomChatMessageTypeEnum;
 import com.richmj.models.CustomChatRecord;
 import com.richmj.models.CustomGroupChatRecord;
+import com.richmj.utils.CommonUtil;
 import com.richmj.utils.JdbcUtil;
 
 import tigase.conf.ConfigurationException;
@@ -33,7 +34,7 @@ public class RichmjComponent extends AbstractMessageReceiver{
 	@Override
 	public void processPacket(Packet packet) {
 		logger.info("自定义Component RichmjComponent收到 packet ---->：" + packet);
-		if(isPacketFromRichMJ(packet)){
+		if(CommonUtil.isPacketFromRichMJ(packet)){
 			handleRichMJPacket(packet);
 			return;
 		}
@@ -61,21 +62,6 @@ public class RichmjComponent extends AbstractMessageReceiver{
 			logger.log(Level.WARNING, "RichmjComponent handleRichMJPacket 异常:", e);
 			e.printStackTrace();
 		}
-	}
-
-	/**
-	 * 判断packet是不是richmj发送的
-	 * @param packet
-	 * @return
-	 */
-	private boolean isPacketFromRichMJ(Packet packet) {
-		String from = packet.getStanzaFrom().getBareJID().toString();
-		String expectFrom = "richmj@" + serverHost;
-		logger.info("from:" + from + ", expectFrom:" + expectFrom);
-		if(from != null && expectFrom.toLowerCase().equals(from.toLowerCase())){
-			return true;
-		}
-		return false;
 	}
 
 	/**
@@ -206,6 +192,7 @@ public class RichmjComponent extends AbstractMessageReceiver{
 		Map<String, Object> result = super.getDefaults(params);
 		if(params.containsKey(serverHostPropertyKey)){
 			serverHost = String.valueOf(params.get(serverHostPropertyKey));
+			Constant.SERVER_HOST = serverHost;
 			logger.info("init serverHost :" + serverHost);
 		}else{
 			logger.log(Level.SEVERE, "serverHost为空");

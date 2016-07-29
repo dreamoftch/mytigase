@@ -14,4 +14,11 @@ public final class Constant {
 	 */
 	public static final String RICHMJ_STANZA_TO = "richmjTo";
 	
+	/**
+	 * tigase聊天系统的server host
+	 */
+	public static String SERVER_HOST = null;
+	
+	public static final String SYSTEM_ACCOUNT = "richmj";
+	
 }

@@ -50,7 +50,7 @@ public class RichmjPlugin extends AnnotatedXMPPProcessor implements XMPPProcesso
 			componentJid = JID.jidInstanceNS("richmj-component", defHost, null);
 		}
 	}
-	
+
 	public void process(Packet packet, XMPPResourceConnection session, NonAuthUserRepository repo,
 			Queue<Packet> results, Map<String, Object> settings) throws XMPPException {
 		//判断是否是需要处理的message
