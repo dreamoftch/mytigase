@@ -22,6 +22,10 @@ public class CustomGroupChatRecord {
 	 */
 	private Integer type;
 	/**
+	 * 名字，用于搜索
+	 */
+	private String name;
+	/**
 	 * 消息内容
 	 */
 	private String message;
@@ -62,10 +66,16 @@ public class CustomGroupChatRecord {
 	public void setGroupId(Long groupId) {
 		this.groupId = groupId;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	@Override
 	public String toString() {
 		return "CustomGroupChatRecord [id=" + id + ", uuid=" + uuid + ", fromId=" + fromId + ", groupId=" + groupId
-				+ ", type=" + type + ", message=" + message + "]";
+				+ ", type=" + type + ", name=" + name + ", message=" + message + "]";
 	}
 	
 }

@@ -26,6 +26,10 @@ public class CustomChatRecord {
 	 */
 	private Integer type;
 	/**
+	 * 名字，用于搜索
+	 */
+	private String name;
+	/**
 	 * 消息内容
 	 */
 	private String message;
@@ -78,10 +82,16 @@ public class CustomChatRecord {
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	@Override
 	public String toString() {
 		return "CustomChatRecord [id=" + id + ", uuid=" + uuid + ", fromId=" + fromId + ", toId=" + toId + ", bigId="
-				+ bigId + ", smallId=" + smallId + ", type=" + type + ", message=" + message + "]";
+				+ bigId + ", smallId=" + smallId + ", type=" + type + ", name=" + name + ", message=" + message + "]";
 	}
 	
 }

@@ -68,13 +68,15 @@ public final class JdbcUtil {
 			return;
 		}
 		try {
-			insertMessageStatement = conn.prepareStatement("insert into custom_chat_record(from_id, to_id, type, message, big_id, small_id) values(?, ?, ?, ?, ?, ?)");
+			insertMessageStatement = conn.prepareStatement("insert into custom_chat_record(from_id, to_id, type, message, big_id, small_id, uuid, name) values(?, ?, ?, ?, ?, ?, ?, ?)");
 			insertMessageStatement.setLong(1, message.getFromId());
 			insertMessageStatement.setLong(2, message.getToId());
 			insertMessageStatement.setInt(3, message.getType());
 			insertMessageStatement.setString(4, message.getMessage());
 			insertMessageStatement.setLong(5, message.getBigId());
 			insertMessageStatement.setLong(6, message.getSmallId());
+			insertMessageStatement.setString(7, message.getUuid());
+			insertMessageStatement.setString(8, message.getName());
 			insertMessageStatement.executeUpdate();
 		} catch (Exception e) {
 			logger.log(Level.SEVERE, String.format("执行插入RichmjMessage记录异常, message: %s：", message), e);
@@ -82,7 +84,7 @@ public final class JdbcUtil {
 			closeJdbcResource(insertMessageStatement, conn);
 		}
 	}
-	
+
 	/**
 	 * 插入CustomGroupChatRecord
 	 * @param message
@@ -95,11 +97,13 @@ public final class JdbcUtil {
 			return;
 		}
 		try {
-			insertMessageStatement = conn.prepareStatement("insert into custom_group_chat_record(from_id, group_id, type, message) values(?, ?, ?, ?)");
+			insertMessageStatement = conn.prepareStatement("insert into custom_group_chat_record(from_id, group_id, type, message, uuid, name) values(?, ?, ?, ?, ?, ?)");
 			insertMessageStatement.setLong(1, message.getFromId());
 			insertMessageStatement.setLong(2, message.getGroupId());
 			insertMessageStatement.setInt(3, message.getType());
 			insertMessageStatement.setString(4, message.getMessage());
+			insertMessageStatement.setString(5, message.getUuid());
+			insertMessageStatement.setString(6, message.getName());
 			insertMessageStatement.executeUpdate();
 		} catch (Exception e) {
 			logger.log(Level.SEVERE, String.format("执行插入CustomGroupChatRecord记录异常, message: %s：", message), e);

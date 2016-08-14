@@ -68,7 +68,6 @@ public class RichmjPlugin extends AnnotatedXMPPProcessor implements XMPPProcesso
 	private Packet generateNewPacket(Packet packet) {
 		Packet result = packet.copyElementOnly();
 		result.setPacketTo(componentJid);
-		//result.getElement().setAttribute("type", "richmj-message");
 		return result;
 	}
 

@@ -74,8 +74,10 @@ public class RichmjComponent extends AbstractMessageReceiver{
 			logger.warning("messageType为空");
 		}
 		if(messageType.equalsIgnoreCase("chat")){
+			//保存私聊自定义消息
 			saveChatMessage(packet);
 		}else if(messageType.equalsIgnoreCase("groupchat")){
+			//保存群聊自定义消息
 			saveGroupChatMessage(packet);
 		}else{
 			logger.warning("无效的messageType " + messageType);
@@ -91,8 +93,10 @@ public class RichmjComponent extends AbstractMessageReceiver{
 			CustomGroupChatRecord message = new CustomGroupChatRecord();
 			message.setFromId(getId(packet.getStanzaFrom()));
 			message.setGroupId(getId(packet.getStanzaTo()));
-			message.setType(getMessageType(packet));
+			message.setType(getType(packet));
 			message.setMessage(packet.getElement().toString());
+			message.setUuid(getMessageUuid(packet));
+			message.setName(getName(packet));
 			new RichmjMessageDao().saveGroupChatMessage(message);
 		} catch (Exception e) {
 			logger.log(Level.WARNING, "保存 CustomGroupChatRecord 消息异常", e);
@@ -108,18 +112,24 @@ public class RichmjComponent extends AbstractMessageReceiver{
 			CustomChatRecord message = new CustomChatRecord();
 			message.setFromId(getId(packet.getStanzaFrom()));
 			message.setToId(getId(packet.getStanzaTo()));
-			message.setType(getMessageType(packet));
+			message.setType(getType(packet));
 			message.setMessage(packet.getElement().toString());
 			message.setBigId(getBigId(message));
 			message.setSmallId(getSmallId(message));
+			message.setUuid(getMessageUuid(packet));
+			message.setName(getName(packet));
 			new RichmjMessageDao().saveChatMessage(message);
 		} catch (Exception e) {
 			logger.log(Level.WARNING, "保存 CustomChatRecord 消息异常", e);
 		}
 	}
 	
-	private Integer getMessageType(Packet packet){
-		String type = packet.getElement().findChildStaticStr(Message.MESSAGE_BODY_PATH).getAttributeStaticStr("type");
+	private String getName(Packet packet) {
+		return packet.getElement().findChildStaticStr(Message.MESSAGE_BODY_PATH).getAttributeStaticStr(Constant.CUSTOM_CHAT_RECORD_NAME_ATTR);
+	}
+
+	private Integer getType(Packet packet){
+		String type = packet.getElement().findChildStaticStr(Message.MESSAGE_BODY_PATH).getAttributeStaticStr(Constant.CUSTOM_CHAT_RECORD_TYPE_ATTR);
 		if(type == null){
 			logger.warning("CustomChatMessageType 为空");
 			return 0;
@@ -130,6 +140,15 @@ public class RichmjComponent extends AbstractMessageReceiver{
 			return 0;
 		}
 		return messageTypeEnum.getCode();
+	}
+	/**
+	 * 获取消息的uuid
+	 * @param packet
+	 * @return
+	 */
+	private String getMessageUuid(Packet packet){
+		String guid = packet.getElement().findChildStaticStr(Message.MESSAGE_BODY_PATH).getAttributeStaticStr("guid");
+		return guid;
 	}
 	
 	/**
