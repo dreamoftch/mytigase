@@ -11,8 +11,8 @@ import com.richmj.dao.RichmjMessageDao;
 import com.richmj.enums.CustomChatMessageTypeEnum;
 import com.richmj.models.CustomChatRecord;
 import com.richmj.models.CustomGroupChatRecord;
-import com.richmj.utils.CommonUtil;
 import com.richmj.utils.JdbcUtil;
+import com.richmj.utils.PushUtil;
 
 import tigase.conf.ConfigurationException;
 import tigase.server.AbstractMessageReceiver;
@@ -33,15 +33,17 @@ public class RichmjComponent extends AbstractMessageReceiver{
 	
 	@Override
 	public void processPacket(Packet packet) {
-		logger.info("自定义Component RichmjComponent收到 packet ---->：" + packet);
-		if(CommonUtil.isPacketFromRichMJ(packet)){
+		/*if(CommonUtil.isPacketFromRichMJ(packet)){
 			handleRichMJPacket(packet);
 			return;
 		}
-		saveMessage(packet);
+		saveMessage(packet);*/
+		
+		//推送消息
+		PushUtil.pushMessage(packet);
 	}
 
-	private void handleRichMJPacket(Packet packet) {
+	public void handleRichMJPacket(Packet packet) {
 		try {
 			logger.info("这个packet是来自richMJ的，开始handleRichMJPacket");
 			//创建一个新的packet，然后将这个packet的from/to设置为指定的用户
@@ -68,7 +70,7 @@ public class RichmjComponent extends AbstractMessageReceiver{
 	 * 保存该消息
 	 * @param packet
 	 */
-	private void saveMessage(Packet packet) {
+	public void saveMessage(Packet packet) {
 		String messageType = packet.getElement().getAttributeStaticStr("type");
 		if(messageType == null || messageType.trim().isEmpty()){
 			logger.warning("messageType为空");

@@ -31,4 +31,17 @@ public final class Constant {
 	 */
 	public static final String CUSTOM_CHAT_RECORD_NAME_ATTR = "name";
 	
+	
+    /****************************     极光推送相关常量 开始     **************************/
+	/**
+	 * 极光推送appKey
+	 */
+	public static final String JIGUANG_APP_KEY ="xxx";
+	/**
+	 * 极光推送masterSecret
+	 */
+	public static final String JIGUANG_MASTER_SECRET = "xxx";
+	
+	/****************************     极光推送相关常量 结束     **************************/
+	
 }

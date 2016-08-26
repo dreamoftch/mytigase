@@ -88,24 +88,24 @@ public class RichmjPlugin extends AnnotatedXMPPProcessor implements XMPPProcesso
 		}
 		BareJID id = (packet.getStanzaFrom() != null) ? packet.getStanzaFrom().getBareJID() : null;
 		if(!session.isUserId(id)){
-			logger.info(ID + ", this message does not belong to current session");
+			logger.info("不是当前用户发送的消息");
 			return false;
 		}
-		logger.info(ID + ", this message belongs to current session");
+		logger.info("是当前用户发送的消息");
 		if (Message.ELEM_NAME != packet.getElemName()) {
 			return false;
 		}
 		Element bodyElement = packet.getElement().findChildStaticStr(Message.MESSAGE_BODY_PATH);
-		logger.info(ID + ", bodyElement:" + bodyElement);
 		if(bodyElement == null){
+			logger.info("当前消息的body为空");
 			return false;
 		}
-		String bodyType = bodyElement.getAttributeStaticStr("type");
+		/*String bodyType = bodyElement.getAttributeStaticStr("type");
 		logger.info(ID + ", bodyType:" + bodyType);
 		
 		if(bodyType == null){
 			return false;
-		}
+		}*/
 		return true;
 	}
 
